@@ -1,0 +1,24 @@
+// Bruteforce Solution O(N^3)
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int ans = Integer.MIN_VALUE;
+
+        for (int sub_array_size = 1; sub_array_size <= nums.length; sub_array_size++) {
+
+            for (int start_index = 0; start_index < nums.length; start_index++) {
+
+                if(start_index+sub_array_size > nums.length){
+                    break;
+                }
+                int sum = 0;
+                for(int i = start_index; i<(start_index + sub_array_size); i++){
+                    sum += nums[i];
+                }
+                ans = Math.max(ans, sum);
+            }
+        }
+
+        return ans;
+    }
+}
